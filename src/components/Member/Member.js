@@ -34,8 +34,6 @@ export default class Member extends Component {
             const data = res.data
 
 
-            const name 
-
             // for (var i = 0; i < res.data.length; i++) {
             //     this.setState({
             //         id:res.data[i].id,
