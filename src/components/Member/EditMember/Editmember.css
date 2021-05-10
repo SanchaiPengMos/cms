@@ -1,0 +1,39 @@
+.EditMember {
+    width: 95%;
+    right: 0%;
+
+}
+
+.btn-saveform {
+    text-align: center;
+
+}
+
+.table-editmem {
+   text-align: left;
+   margin: auto;  
+   width: 30%;  
+   padding: 3%;  
+}
+
+
+.btn-editmem button {
+    margin-left: 20px;
+}
+
+.btn-editmem {
+    height: 30px;
+    width: 10%;
+    border-color: #f1c40f;
+    color: rgb(0, 0, 0);
+    background-image: -webkit-linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.btn-editmem:hover{
+    background-position: 0;
+}

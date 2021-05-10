@@ -1,0 +1,22 @@
+.header-editroomtype {
+    
+    border: 0px solid rgb(247, 0, 0);
+
+}
+
+.btn-edittyperoom button {
+    width: 20%;
+    height: 30px;
+    background-color: aqua;
+}
+
+.btn-edittyperoom {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.tbl-typeroom table {
+    margin-left: 15px;
+    margin-top: 10px;
+}
