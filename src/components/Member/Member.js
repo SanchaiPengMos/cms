@@ -7,18 +7,24 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import './Member.css'
 
-const apiSuser = 'sumuser'
+const apiSuser = 'http://127.0.0.1:9999/searchuser'
+
 
 export default class Member extends Component {
 
     constructor(props){
-        super(props)
-        
+        super(props)    
         this.state = {
-            id:"",
-            firstname:"",
-            lastname:"",
-            email:"",
+
+            tableData :[{
+                id:"",
+                firstname:"",
+                lastname:"",
+                email:"",
+                tel:"",
+                birthday:""
+            }]
+
         }
       }
 
@@ -31,77 +37,73 @@ export default class Member extends Component {
           .then(
           res => {
 
-            const data = res.data
-
-
-            // for (var i = 0; i < res.data.length; i++) {
-            //     this.setState({
-            //         id:res.data[i].id,
-            //         firstname:res.data[i].firstname,
-            //         lastname:res.data[i].lastname,
-            //         email: res.data[i].email
-            //     })
-            //     console.log("=====",res.data[i]);
-            //   } 
-            //   console.log(this.state.firstname)
-
-
-              
+            this.setState({
+                tableData: res.data
+            })
+            console.log(this.state.tableData)
+ 
           },
           err => {
             console.log(err)
           }
         )
       }
+
+    renderTableHeader(){
+        return Object.keys(this.state.tableData[0]).map(attr => <th key={attr}>{attr.toUpperCase()}</th>)
+    }
+
+    renderTableRows = () => {
+        return this.state.tableData.map(user => {
+            return (
+                <tr key={user.id}>
+                    <td>{user.firstname}-{user.lastname}</td>
+                    <td>{user.email}</td>
+                    <td align="center" >{user.tel}</td>
+                    <td align="center"><CgPen /> </td>
+                </tr>
+            )
+        })
+    }
       
-
     render() {
-        return (
-            
-            <Router>
 
-            <div className="adminheader">
+        const {tableData} = this.state ;
+        console.log("tabledata",tableData)
 
-            <div className="member-admin">
-                <img src="https://cdn2.f-cdn.com/contestentries/365819/10129715/56e657a9c8e95_thumb900.jpg" alt="member" />
-            </div>
-
-            
+        return tableData.length > 0 
+        ?(
             <div className="input-text">
-                    <div className="roommng">
-                        <button>สมาชิก</button> 
-                        <input type="text" placeholder="Search" style={{marginLeft: '3%'}} />
-                    </div>
-                    <table className="table table-condensed table-hover" border='1' width='95%' >
+            <div className="roommng">
+                <button>สมาชิก</button> 
+            </div>
+            <table className="table table-condensed table-hover" border='1' width='95%' >
 
-                        <tbody>
-                            <tr align="center" >
-                                <td>ขื่อ-นามสกุล</td>
-                                <td>วันเกิด</td>
-                                <td>เบอร์โทรศัพท์</td>
-                                <td>E-mail</td>
-                                <td>แก้ไขข้อมูล</td>
-                            </tr>
+                <tbody>
+                    <tr align="center" >
+                        <td>ขื่อ-นามสกุล</td>
+                        <td>E-mail</td>
+                        <td>เบอร์โทรศัพท์</td>
+                        <td>แก้ไขข้อมูล</td>
+                    </tr>
 
-                            <tr align="center">
-                                <td>{this.state.firstname} - {this.state.lastname}</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>{this.state.email}</td>
-                                <td><Link to={'/'}> <CgPen /></Link></td>
-                            </tr>
-                            
-                        </tbody>
- 
-                    </table>
-                    <Switch>
-                        <Route exact path='/' component={Edit} />
-                    </Switch>
+                        {this.renderTableRows()}
+
                     
-            </div>
+                </tbody>
 
+            </table>
+            <Switch>
+                <Route exact path='/' component={Edit} />
+            </Switch>
+            
+    </div>
+        ) : (
+            <div>
+                No users.
             </div>
-            </Router>
         )
+
+
     }
 }
