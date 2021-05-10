@@ -7,16 +7,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import './Member.css'
 
-const apiSuser = 'http://127.0.0.1:9999/sumuser'
+const apiSuser = 'sumuser'
 
 export default class Member extends Component {
 
     constructor(props){
         super(props)
-    
-    
+        
         this.state = {
-    
+            id:"",
             firstname:"",
             lastname:"",
             email:"",
@@ -31,19 +30,25 @@ export default class Member extends Component {
           
           .then(
           res => {
-    
-            for (var i = 0; i < res.data.length; i++) {
-                this.setState({
-                    firstname:res.data[i].firstname,
-                    lastname:res.data[i].lastname,
-                    email: res.data[i].email
-                })
-                console.log("len")
-                console.log("=====",res.data[i]);
-              } 
+
+            const data = res.data
+
+
+            const name 
+
+            // for (var i = 0; i < res.data.length; i++) {
+            //     this.setState({
+            //         id:res.data[i].id,
+            //         firstname:res.data[i].firstname,
+            //         lastname:res.data[i].lastname,
+            //         email: res.data[i].email
+            //     })
+            //     console.log("=====",res.data[i]);
+            //   } 
+            //   console.log(this.state.firstname)
+
+
               
-            console.log("email",this.state.email)   
-            
           },
           err => {
             console.log(err)
@@ -53,7 +58,6 @@ export default class Member extends Component {
       
 
     render() {
-        console.log(this.state.data)
         return (
             
             <Router>
@@ -70,7 +74,6 @@ export default class Member extends Component {
                         <button>สมาชิก</button> 
                         <input type="text" placeholder="Search" style={{marginLeft: '3%'}} />
                     </div>
-                    <p>1213 {this.state.firstname}  </p> 
                     <table className="table table-condensed table-hover" border='1' width='95%' >
 
                         <tbody>
@@ -94,7 +97,7 @@ export default class Member extends Component {
  
                     </table>
                     <Switch>
-                    <Route exact path='/' component={Edit} />
+                        <Route exact path='/' component={Edit} />
                     </Switch>
                     
             </div>
