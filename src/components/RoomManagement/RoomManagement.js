@@ -1,16 +1,73 @@
 import React, { Component } from 'react'
 import Roommngm from './RoomManagementEdit/Roommngm'
+import axios from 'axios'
+
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { IoTrashOutline } from "react-icons/io5";
 import { CgPen } from "react-icons/cg";
 
 import './RoomManagement.css'
 
-export default class RoomManagement extends Component {
-    render() {
+const roomtype ="editroom"
 
-        const img = <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ic_add_circle_outline_48px.svg/1024px-Ic_add_circle_outline_48px.svg.png"  alt="" />    
-   
+export default class RoomManagement extends Component {
+
+    constructor(props){
+        super(props)    
+        this.state = {
+
+            tableData :[{
+                id:"",
+                name_room:"",
+                detail:"",
+                price:""
+            }]
+
+        }
+      }
+      componentDidMount = () => {
+
+        console.log("==componentDidMount==")
+    
+        axios.get(roomtype)
+          
+          .then(
+          res => {
+
+            this.setState({
+                tableData: res.data
+            })
+            console.log(this.state.tableData)
+ 
+          },
+          err => {
+            console.log(err)
+          }
+        )
+      }
+
+    renderTableHeader(){
+        return Object.keys(this.state.tableData[0]).map(attr => <th key={attr}>{attr.toUpperCase()}</th>)
+    }
+
+    renderTableRows = () => {
+        return this.state.tableData.map(room => {
+            return (
+                <tr key={room.id}>
+                    <td>{room.name_room}</td>
+                    <td>{room.detail}</td>
+                    <td>{room.price}</td>
+                    <td align="center"><CgPen /> </td>
+                    <td align="center"><IoTrashOutline /> </td>
+
+                </tr>
+            )
+        })
+    }
+
+
+    render() {
 
         return (
             <Router>
@@ -35,28 +92,9 @@ export default class RoomManagement extends Component {
                                 <td width="20%">แก้ไขข้อมูล</td>
                                 <td>ลบ</td>
                             </tr>
-                            <tr>
-                                <td>A1</td>
-                                <td>เตียงเดี่ยว</td>
-                                <td>1200</td>
-                                <td><Link to={'/Roommngm'}> <CgPen /></Link></td>
-                                <td><IoTrashOutline /></td>
-                            </tr>
-                            <tr>
-                                <td>A2</td>
-                                <td>เตียงเดี่ยว</td>
-                                <td>1200</td>
-                                <td><Link to={'/Roommngm'}> <CgPen /></Link></td>
-                                <td><IoTrashOutline /></td>
-                            </tr>
-                            <tr>
-                                <td>A2</td>
-                                <td>เตียงเดี่ยว</td>
-                                <td>1200</td>
-                                <td><Link to={'/Roommngm'}> <CgPen /></Link></td>
-                                <td><IoTrashOutline /></td>
-                            </tr>
-                            
+
+                            {this.renderTableRows()}
+
                         </tbody>
                     </table>
                     <div className="btn-addroom">

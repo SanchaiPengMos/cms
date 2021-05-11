@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import './Member.css'
 
-const apiSuser = 'http://127.0.0.1:9999/searchuser'
+const apiSuser = 'searchuser'
 
 
 export default class Member extends Component {
@@ -86,10 +86,7 @@ export default class Member extends Component {
                         <td>เบอร์โทรศัพท์</td>
                         <td>แก้ไขข้อมูล</td>
                     </tr>
-
                         {this.renderTableRows()}
-
-                    
                 </tbody>
 
             </table>
