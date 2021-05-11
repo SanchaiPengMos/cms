@@ -20,7 +20,6 @@ export default class EditMember extends Component {
     }
 
     handdleEdit(){
-        console.log("handdleEditasdasd",this.props.id)
         const data = {
             firstname:this.state.firstname,
             lastname: this.state.lastname,
@@ -40,7 +39,6 @@ export default class EditMember extends Component {
           .then(function (res) {
     
             console.log(res)
-            console.log("Start res data",res.data);
             alert("แก้ไขข้อมูลสำเสร็จ")
     
           })
@@ -49,6 +47,8 @@ export default class EditMember extends Component {
             console.log(error);
           
           });  
+          
+          
     }
 
     render() {
@@ -72,6 +72,7 @@ export default class EditMember extends Component {
                     <input name="lastname"
                         type="text" 
                         className="form-edit"  
+                        value={this.props.lastname}
                         placeholder="นามสกุล" 
                         onChange={e => this.setState({ lastname: e.target.value })} /> <br />
 
@@ -79,50 +80,20 @@ export default class EditMember extends Component {
                         type="text" 
                         className="form-edit" 
                         placeholder="เบอร์โทรศัพท์" 
+                        value={this.props.tel}
                         onChange={e => this.setState({ tel: e.target.value })} /> <br />
                     
-                    <button onClick={this.handdleEdit}  ><CgPen /></button>
+                    <button onClick={this.handdleEdit}>< CgPen /></button>
 
 
                     </form>
 
-                </div>
-
-                    
+                </div>            
             )
         }
         
         return (
-            <div className="EditMember">
-
-            </div>
+            <div />
         )
     }
-}
-
-function Editmembers(props){
-    return(
-        <div>
-            <input name="firstname" 
-                type="text" 
-                className="form-edit"  
-                placeholder="ชื่อ" 
-                value={this.props.firstname} 
-                onChange={e => this.setState({ firstname: e.target.value })} />
-
-            <input name="lastname"
-                type="text" 
-                className="form-edit"  
-                placeholder="นามสกุล" 
-                value={this.props.lastname} 
-                onChange={e => this.setState({ lastname: e.target.value })} />
-
-            <input name="tel"
-                type="text" 
-                className="form-edit" 
-                placeholder="เบอร์โทรศัพท์" 
-                value={this.props.tel} 
-                onChange={e => this.setState({ tel: e.target.value })} />
-        </div>
-    )
 }

@@ -28,3 +28,8 @@
     margin-top: 10px;
     margin-left: 15px;
 }
+
+.roommng button {
+    border: none;
+    border-radius: 10px;
+}
