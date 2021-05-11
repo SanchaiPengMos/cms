@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import './Member.css'
 
-const apiSuser = 'http://127.0.0.1:9999/searchuser'
+const apiSuser = 'searchuser'
 
 
 export default class Member extends Component {
