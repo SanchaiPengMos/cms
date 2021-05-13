@@ -46,11 +46,6 @@ export default class RoomManagement extends Component {
           }
         )
       }
-
-    renderTableHeader(){
-        return Object.keys(this.state.tableData[0]).map(attr => <th key={attr}>{attr.toUpperCase()}</th>)
-    }
-
     renderTableRows = () => {
         return this.state.tableData.map(room => {
             return (
@@ -83,13 +78,13 @@ export default class RoomManagement extends Component {
 
                 <div className="tbl-room">
                     
-                    <table border='1' width='100%'>
+                    <table border='1'>
                         <tbody>
                             <tr>
-                                <td width="30%">หมายเลขห้องพัก</td>
-                                <td width="30%">ประเภทห้อง</td>
+                                <td>หมายเลขห้องพัก</td>
+                                <td>ประเภทห้อง</td>
                                 <td>ราคา(บาท)</td>
-                                <td width="20%">แก้ไขข้อมูล</td>
+                                <td>แก้ไขข้อมูล</td>
                                 <td>ลบ</td>
                             </tr>
 

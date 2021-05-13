@@ -40,7 +40,6 @@ export default class Member extends Component {
             this.setState({
                 tableData: res.data
             })
-            console.log(this.state.tableData)
  
           },
           err => {
@@ -67,9 +66,6 @@ export default class Member extends Component {
     }
       
     render() {
-
-        const {tableData} = this.state ;
-        console.log("tabledata",tableData)
 
         return (
             <div className="input-text">

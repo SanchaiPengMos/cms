@@ -13,27 +13,50 @@ export default class RoomType extends Component {
 
     constructor(props){
         super(props)
-        
-    }
 
-    
+        this.state = {
+
+            tableData :[{
+                id:"",
+                url:"",
+                name:"",
+                detail:"",
+
+            }]}
+    }
 
     componentDidMount(){
         console.log("componentDidMount")
         axios.get(apigettyperoom)
         .then(res => {
-            console.log(res)
+            this.setState({
+                tableData: res.data
+            })
+            console.log("asd",this.state.tableData)
         })
         .catch(err =>{
             console.log(err)
         })
+    }
 
+    renderTableRows = () => {
+        return this.state.tableData.map(room => {
+            return (
+                <tr key={room.id}>
+                    <td><img src={room.url} alt="member" /></td>
+                    <td>{room.name}</td>
+                    <td>{room.detail}</td>
+                    <td align="center"><CgPen /> </td>
+                    <td><IoTrashOutline /></td>
+                </tr>
+            )
+        })
     }
     
     render() {
 
 
-
+        
         return (
             <Router>
             <div className="header-roomty">
@@ -41,7 +64,7 @@ export default class RoomType extends Component {
                 <div className="roommns-admin">
                     <img src="https://cdn2.f-cdn.com/contestentries/365819/10129715/56e657a9c8e95_thumb900.jpg" alt="member" />
                 </div>
-
+                 
                 <div className="roommng">
                     <button>ประเภทห้องพัก</button>
                 </div>
@@ -59,7 +82,7 @@ export default class RoomType extends Component {
                                 <td >แก้ไข</td>
                                 <td width="30%">ลบ</td>
                             </tr>
-
+                            {this.renderTableRows()}
                         </tbody>
                     </table>
 
