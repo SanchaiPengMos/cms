@@ -40,7 +40,6 @@ export default class Member extends Component {
             this.setState({
                 tableData: res.data
             })
-            console.log(this.state.tableData)
  
           },
           err => {
@@ -68,11 +67,7 @@ export default class Member extends Component {
       
     render() {
 
-        const {tableData} = this.state ;
-        console.log("tabledata",tableData)
-
-        return tableData.length > 0 
-        ?(
+        return (
             <div className="input-text">
             <div className="roommng">
                 <button>สมาชิก</button> 
@@ -95,12 +90,6 @@ export default class Member extends Component {
             </Switch>
             
     </div>
-        ) : (
-            <div>
-                No users.
-            </div>
         )
-
-
     }
 }
