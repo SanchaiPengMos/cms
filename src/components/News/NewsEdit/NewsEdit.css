@@ -1,0 +1,39 @@
+.header-newsedit {
+    margin-top: 10px;
+    position: absolute;
+    width: 74%;
+
+}
+
+.btn-newsedit {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.btn-newsedit button {
+    width: 15%;
+    height: 30px;
+    background-color: aqua;
+}
+.tbl-newsedit {
+    margin-top: 10px;
+}
+
+.tbl-newsedit table {
+    height: 40px;
+    margin: auto;
+    width: 70%;
+}
+
+.tbl-newsedit table tr td input {
+    width: 90%;
+    height: 100%;
+    
+}
+
+.tbl-newsedit table tr td button {
+    margin-top: 10px;
+    width: 5%;
+
+}

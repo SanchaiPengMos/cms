@@ -1,0 +1,16 @@
+.index-admin {
+    width: 74%;
+    position: absolute;
+    margin-top: 15px;
+
+    right: 0%;
+    top: 0%;
+}
+
+.p-chart p{
+    margin-top: 10px;
+}
+
+.chartjs {
+    margin-top: 10px;
+}

@@ -1,0 +1,30 @@
+.Roommngm {
+    width: 95%;
+
+}
+ 
+.btn-nngm {
+    margin-left: 5px;
+    text-align: left;
+}
+
+.btn-nngm button {
+    margin-top: 10px;
+    width: 30%;
+    height: 30px;
+    background-color: aqua;
+}
+
+.tbl-nngm {
+    margin-top: 10px;
+    height: 100px;
+    width: 50%;
+}
+.btn-nngm table {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.tbl-nngm table input {
+    height: 30px;
+}

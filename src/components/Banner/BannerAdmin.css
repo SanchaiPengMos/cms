@@ -1,0 +1,45 @@
+.banner-admin{
+    color: rgb(0, 0, 0);
+    width: 74%;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    margin-top: 15px;
+
+}
+
+.btn-banner {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.btn-banner button {
+    width: 15%;
+    background-color: aqua;
+}
+
+.tbl-headbanner {
+    margin: auto;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.tbl-banneradmin {
+    margin: auto;
+    margin-top: 30px;
+    height: 100px;
+    width: 70%;
+}
+
+.tbl-headbanner table {
+    margin-top: 10px;
+}
+
+.tbl-banneradmin table {
+    margin-top: 10px;
+}
+
+.tbl-banneradmin table img {
+    width: 40%;
+}

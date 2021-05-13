@@ -1,0 +1,60 @@
+.roommanagement {
+    margin-top: 15px;
+    position: absolute;
+    width: 74%;
+    right: 0%;
+    top: 0%;    
+
+
+}
+
+.roommns-admin img {
+    border-radius: 50%;
+    width: 190px;
+}
+
+.roommng {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.roommng button {
+    width: 15%;
+    height: 30px;
+    background-color: aqua;
+}
+
+.tbl-room {
+    margin-top: 10px;
+    height: 100px;
+    margin: auto;
+    width: 50%;
+}
+
+.tbl-room table {
+    margin-top: 15px;
+    float: right;
+}
+
+.add{
+    overflow: auto;
+   
+}
+
+.pash {
+    position: absolute;
+    width: 20%;
+    right: 0px;
+    margin-right: 25%;
+    margin-top: 10px;
+}
+
+.add img  {
+    width: 30%;
+    float: right;
+    
+}
+.btn-addroom button{
+    margin-top: 10px;
+}
