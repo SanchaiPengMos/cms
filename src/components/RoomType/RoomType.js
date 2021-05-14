@@ -54,8 +54,6 @@ export default class RoomType extends Component {
     }
     
     render() {
-
-
         
         return (
             <Router>
