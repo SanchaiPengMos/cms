@@ -1,0 +1,13 @@
+.con-login{
+    padding: 22px;
+    border: 1px solid#000;
+    text-align: center;
+}
+.confirm{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.box-login{
+    margin-top: 30px;
+}

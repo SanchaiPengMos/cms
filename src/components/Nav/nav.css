@@ -1,0 +1,36 @@
+.list-li ul li {
+    list-style: none;
+}
+
+.ul-head{
+    display: flex;
+}
+
+.list-li li {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
+
+.ul-head li {
+    padding: 10px;
+}
+.list-li{
+    background-color: black;
+}
+
+ul li:hover {background: #555;}
+ul li ul li:hover {background: #666;}
+.continner {
+    background-color: rgb(190, 255, 255);
+}
+
+.txt-nav {
+    text-align: center;
+    height: 200px;
+    align-items: center;
+    display: grid;
+}
+.txt-nav p {
+    font-size: 3em;
+}
