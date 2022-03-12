@@ -6,11 +6,45 @@ import './Login.css'
 
 export default class Login extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.handleLogin = this.handleLogin.bind(this);
+
+        this.state = {
+            email : "",
+        }
+    }
+
+    handleLogin = e => {
+
+        e.preventDefault();
+
+      const config = {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          }
+      }
+
+      const data  = {
+            email : this.email,
+            password: this.password,
+            usepermis_id : this.usepermis_id,
+        };
+
+
+      
+
+    
+    };
+
+
     render() {
 
         return(
-            <div>
-                <Nav />
+            <div >
+                {/* <Nav /> */}
                 <div className='con-login'>
                     <div className='txt-title' >
                         Login

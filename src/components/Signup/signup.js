@@ -7,7 +7,7 @@ import "./signup.css"
 export default class SignUp extends Component {
     render() {
         return (
-             <div>
+             <div className="fx-n">
                  <Nav />
                  <div className="sign-up">
                      <div className="input-signup">

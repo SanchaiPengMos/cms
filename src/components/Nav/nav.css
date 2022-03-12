@@ -3,7 +3,7 @@
 }
 
 .ul-head{
-    display: flex;
+    display: contents;
 }
 
 .list-li li {
@@ -14,15 +14,18 @@
 
 .ul-head li {
     padding: 10px;
+    text-align: center;
 }
 .list-li{
     background-color: black;
+    width: 160px;
+    height: 100vh;
 }
 
 ul li:hover {background: #555;}
 ul li ul li:hover {background: #666;}
 .continner {
-    background-color: rgb(190, 255, 255);
+    /* background-color: rgb(190, 255, 255); */
 }
 
 .txt-nav {

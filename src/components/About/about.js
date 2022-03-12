@@ -6,7 +6,7 @@ export default class About extends Component {
 
     render() {
         return (
-             <div>
+             <div className="fx-n">
                  <Nav />
 
                  <div className="about">
