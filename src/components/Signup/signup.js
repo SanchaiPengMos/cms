@@ -7,8 +7,8 @@ import "./signup.css"
 export default class SignUp extends Component {
     render() {
         return (
-             <div className="fx-n">
-                 <Nav />
+             <div>
+                 {/* <Nav /> */}
                  <div className="sign-up">
                      <div className="input-signup">
                             <div className="from-data">

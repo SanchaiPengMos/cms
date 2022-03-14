@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import Nav from "../Nav/nav"
 
+import { apiLogin } from '../../service/api/Login';
+
 import './Login.css'
 
 export default class Login extends Component {
@@ -10,30 +12,36 @@ export default class Login extends Component {
         super(props);
 
         this.handleLogin = this.handleLogin.bind(this);
-
-        this.state = {
-            email : "",
-        }
     }
 
     handleLogin = e => {
 
         e.preventDefault();
 
-      const config = {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          }
-      }
-
       const data  = {
             email : this.email,
             password: this.password,
-            usepermis_id : this.usepermis_id,
         };
 
+        
+        apiLogin(data)
+            .then((res) => {
 
+                // console.log(data)
+                localStorage.setItem('result',res.data.result)
+                // console.log(localStorage.getItem('result',res.data.result))
+                alert("เข้าสู่เรียบร้อยแล้ว")
+                window.location.assign("http://localhost:3000/home") 
+
+            } )
+            .catch((err) => {
+                console.log(err)
+                
+                alert("กรุณาเข้าสู่ระบบใหม่อีกครั้ง")
+                window.location.assign("http://localhost:3000/")
+                
+
+            } )
       
 
     
@@ -45,30 +53,38 @@ export default class Login extends Component {
         return(
             <div >
                 {/* <Nav /> */}
-                <div className='con-login'>
-                    <div className='txt-title' >
-                        Login
-                    </div>
-                    <div className='box-login'>
-                        <div className='box-from' >
-                            <div className='input-username' >
-                                <input type={"text"} placeholder="Username" />
-                            </div>
-                            <div>
-                                <input type={"password"} placeholder="Password" />
-                            </div>
-                        </div>
+                <div className="row">
+                    
+                    <div className="col">
+                    
+                    <form onSubmit={this.handleLogin}  >
 
+                        <div className="form-group">
+                            <label >Email</label>
+                            <input
+                            type="email"
+                            name="email"
+                            onChange={e => this.email = e.target.value} 
+                            className="form-control" 
+                            placeholder="Email"
+                            required />
+
+                            <label>Password</label>
+                            <input 
+                            type="password"
+                            name="password"
+                            onChange={e => this.password = e.target.value} 
+                            className="form-control" 
+                            placeholder="Password"
+                            required />
+                            <input type="submit" value="Login" />
+                        </div>      
+                            
+                    </form>
+                  
                     </div>
-                    <div className='confirm'>
-                        <div className='btn-login'> 
-                            <button> Login </button>
-                        </div>
-                        <div className='sig-in'>
-                            <button> Sign up </button>
-                        </div>
-                    </div>
-                </div>
+                    
+            </div>
             </div>
         )
     }
