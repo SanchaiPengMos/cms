@@ -5,6 +5,22 @@ import "./nav.css"
 
 export default class Nav extends Component {
 
+    constructor(props) {
+        super(props)
+        this.handleLogout = this.handleLogout.bind(this)
+      }
+
+
+
+    handleLogout = () => {
+
+        localStorage.removeItem("result")        
+        alert("ออกจากระบบเรียบร้อยแล้ว")
+            
+        window.location.assign("http://localhost:3000")  
+        
+    }
+
     render() {
         return (
             <div className="continner">
@@ -38,7 +54,7 @@ export default class Nav extends Component {
                                 </li>
                             </NavLink>
                             <NavLink to={'/'}>
-                                <li className='btnthird'>
+                                <li className='btnthird' onClick={this.handleLogout} >
                                     Logout
                                 </li>
                             </NavLink>
